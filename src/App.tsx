@@ -38,7 +38,7 @@ function App() {
     <Router>
       <div className="App">
         {isAuthenticated && <Header onLogout={handleLogout} />}
-        <div className="main-layout h-full">
+        <div className="main-layout">
           {isAuthenticated && <Sidebar />}
           <div className="content">
             <Routes>

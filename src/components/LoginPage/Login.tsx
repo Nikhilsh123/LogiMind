@@ -54,13 +54,13 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 flex items-center justify-center p-4">
+    <div className="h-screen max-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 flex items-center justify-center p-4 overflow-hidden">
       {/* Background pattern overlay */}
       <div className="absolute inset-0 bg-black opacity-20"></div>
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent"></div>
 
       {/* Login container */}
-      <div className="relative z-10 w-full max-w-md">
+      <div className="relative z-10 w-full max-w-md max-h-[90vh] overflow-hidden">
         {/* Logo and company section */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-500 rounded-full mb-4 shadow-lg">
