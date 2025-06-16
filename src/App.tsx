@@ -5,7 +5,7 @@ import Register from "./components/RegisterPage/Register";
 import Login from "./components/LoginPage/Login";
 import Header from "./components/common/Header/Header";
 import Sidebar from "./components/common/Sidebar/Sidebar";
-import "./index.css";
+import "./App.css";
 
 // App component
 function App() {
@@ -38,7 +38,7 @@ function App() {
     <Router>
       <div className="App">
         {isAuthenticated && <Header onLogout={handleLogout} />}
-        <div className="main-layout">
+        <div className="main-layout h-full">
           {isAuthenticated && <Sidebar />}
           <div className="content">
             <Routes>
