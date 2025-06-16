@@ -20,14 +20,17 @@ db.once("open", () => {
 });
 
 // Define User Schema
-const userSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  companyName: { type: String, required: true },
-}, {
-  timestamps: true // Add createdAt and updatedAt fields
-});
+const userSchema = new mongoose.Schema(
+  {
+    username: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    companyName: { type: String, required: true },
+  },
+  {
+    timestamps: true, // Add createdAt and updatedAt fields
+  }
+);
 
 const User = mongoose.model("User", userSchema);
 
@@ -42,16 +45,18 @@ app.post("/api/register", async (req, res) => {
   if (!username || !email || !password || !companyName) {
     return res
       .status(400)
-      .json({ message: "Username, email, password, and company name are required." });
+      .json({
+        message: "Username, email, password, and company name are required.",
+      });
   }
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
-    const newUser = new User({ 
-      username, 
-      email, 
+    const newUser = new User({
+      username,
+      email,
       password: hashedPassword,
-      companyName 
+      companyName,
     });
     await newUser.save();
     res.status(201).json({ message: "User registered successfully!" });
@@ -67,7 +72,9 @@ app.post("/api/register", async (req, res) => {
         res.status(400).json({ message: "Username or email already exists." });
       }
     } else {
-      res.status(500).json({ message: "Internal server error: " + error.message });
+      res
+        .status(500)
+        .json({ message: "Internal server error: " + error.message });
     }
   }
 });

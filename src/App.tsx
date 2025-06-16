@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Dashboard from "./components/DashboardPage/Dashboard";
+import Shipments from "./components/ShipmentsPage/Shipments";
 import Register from "./components/RegisterPage/Register";
 import Login from "./components/LoginPage/Login";
 import Header from "./components/common/Header/Header";
@@ -49,6 +50,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <Dashboard />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/shipments"
+                element={
+                  <PrivateRoute>
+                    <Shipments />
                   </PrivateRoute>
                 }
               />

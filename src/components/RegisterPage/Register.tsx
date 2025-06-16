@@ -64,15 +64,16 @@ const Register = () => {
     } catch (error) {
       setMessage("An error occurred. Please try again.");
     }
-  };  return (
+  }; return (
     <div className="h-screen max-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 flex items-center justify-center p-4 overflow-hidden">
       {/* Background pattern overlay */}
       <div className="absolute inset-0 bg-black opacity-20"></div>
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent"></div>
-      
+
       {/* Register container */}
-      <div className="relative z-10 w-full max-w-lg max-h-[90vh] overflow-y-auto" style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
-        <style dangerouslySetInnerHTML={{__html: `
+      <div className="relative z-10 w-full max-w-lg max-h-[90vh] overflow-y-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        <style dangerouslySetInnerHTML={{
+          __html: `
           .relative::-webkit-scrollbar { display: none; }
         `}} />
         {/* Logo and company section */}
@@ -229,8 +230,8 @@ const Register = () => {
 
           {message && (
             <div className={`mt-4 p-3 rounded-lg text-sm ${message.includes("successful") || message.includes("Redirecting")
-                ? "bg-green-50 text-green-700 border border-green-200"
-                : "bg-red-50 text-red-700 border border-red-200"
+              ? "bg-green-50 text-green-700 border border-green-200"
+              : "bg-red-50 text-red-700 border border-red-200"
               }`}>
               {message}
             </div>

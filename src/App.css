@@ -9,7 +9,8 @@
 }
 
 /* Ensure html and body don't show scrollbars */
-html, body {
+html,
+body {
   overflow: hidden;
   height: 100vh;
   max-height: 100vh;
