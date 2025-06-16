@@ -1,10 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App";
+import App from "./App"; // Ensure this points to App.tsx
 import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root")!); // Add non-null assertion
 root.render(
   <React.StrictMode>
     <App />

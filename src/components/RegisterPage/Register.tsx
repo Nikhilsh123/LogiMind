@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./Register.css";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -46,38 +45,41 @@ const Register = () => {
   };
 
   return (
-    <div className="register">
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <h1 className="text-2xl font-bold mb-4">Register</h1>
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-6 rounded shadow-md w-80"
+      >
         <input
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          className="w-full p-2 mb-4 border rounded"
         />
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className="w-full p-2 mb-4 border rounded"
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="w-full p-2 mb-4 border rounded"
         />
-        <button type="submit">Register</button>
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white p-2 rounded"
+        >
+          Register
+        </button>
       </form>
-      {message && <p>{message}</p>}
-      <h2>Registered Users</h2>
-      <ul>
-        {users.map((user, index) => (
-          <li key={index}>
-            {user.username} ({user.email})
-          </li>
-        ))}
-      </ul>
+      {message && <p className="text-red-500 mt-4">{message}</p>}
     </div>
   );
 };

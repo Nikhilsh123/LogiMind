@@ -2,7 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
 
 const app = express();
 const PORT = 5000;
@@ -80,14 +79,7 @@ app.post("/api/login", async (req, res) => {
       return res.status(401).json({ message: "Invalid email or password." });
     }
 
-    res.status(200).json({
-      message: "Login successful!",
-      user: {
-        id: user._id,
-        username: user.username,
-        email: user.email,
-      },
-    });
+    res.status(200).json({ message: "Login successful!" });
   } catch (error) {
     res.status(500).json({ message: "Internal server error." });
   }
